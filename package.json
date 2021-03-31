@@ -1,0 +1,12 @@
+{
+  "name": "circulation-puppeteer-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/logical-fabrics/circulation-puppeteer-example.git",
+  "author": "Ray Sakai <ray.sakai@logical-fabrics.com>",
+  "license": "MIT",
+  "dependencies": {
+    "await-sleep": "^0.0.1",
+    "puppeteer": "^8.0.0"
+  }
+}
