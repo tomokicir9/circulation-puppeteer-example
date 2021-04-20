@@ -15,6 +15,7 @@ const puppeteer = require('puppeteer')
   const CURRENT_PRICE_SELECTOR =
     '#root > main > div > div > div.XuqDlHPN > div:nth-child(2) > section._1zZriTjI._2l2sDX5w > div._1nb3c4wQ > header > div.nOmR5zWz > span > span > span'
 
+  console.log('トヨタのページの処理開始')
   await page.goto('https://finance.yahoo.co.jp/quote/7203.T') // トヨタのページへの直リンク
   await page.waitForSelector(CURRENT_PRICE_SELECTOR) // 対象の要素が表示されるまで待つ
   const toyotaCurrentPrice = await page.$eval(
@@ -23,6 +24,7 @@ const puppeteer = require('puppeteer')
     (e) => e.textContent
   )
 
+  console.log('ホンダのページの処理開始')
   await page.goto('https://finance.yahoo.co.jp/quote/7267.T') // ホンダのページへの直リンク
   await page.waitForSelector(CURRENT_PRICE_SELECTOR) // 対象の要素が表示されるまで待つ
   const hondaCurrentPrice = await page.$eval(
@@ -32,6 +34,7 @@ const puppeteer = require('puppeteer')
   )
 
   // 各々の現在価格を表示
+  console.log('処理完了\n')
   console.log(`トヨタ: ${toyotaCurrentPrice}`)
   console.log(`ホンダ: ${hondaCurrentPrice}`)
 

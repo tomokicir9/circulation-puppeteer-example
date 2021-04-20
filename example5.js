@@ -27,6 +27,8 @@ const HONDA_SYMBOL = 7267
     '#detail > section._2Yx3YP9V._3v4W38Hq > div > ul > li:nth-child(4) > dl > dd > span._1fofaCjs._2aohzPlv._1DMRub9m > span > span'
 
   const getPrice = async (tickerSymbol) => {
+    console.log(`${tickerSymbol} の処理を開始`)
+
     await page.goto(`https://finance.yahoo.co.jp/quote/${tickerSymbol}.T`)
     await page.waitForSelector(SEL_CURRENT)
 
@@ -42,6 +44,8 @@ const HONDA_SYMBOL = 7267
   // 各種価格をまとめて取得
   const toyotaPrice = await getPrice(TOYOTA_SYMBOL)
   const hondaPrice = await getPrice(HONDA_SYMBOL)
+
+  console.log('取得処理完了\n')
 
   // 各種価格を表示する関数
   const printPrice = (price, companyName) => {

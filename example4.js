@@ -19,6 +19,8 @@ const HONDA_SYMBOL = 7267
 
   // これが "関数"
   const getCurrentPrice = async (tickerSymbol) => {
+    console.log(`${tickerSymbol} の処理を開始`)
+
     await page.goto(`https://finance.yahoo.co.jp/quote/${tickerSymbol}.T`)
     await page.waitForSelector(CURRENT_PRICE_SELECTOR)
     const currentPrice = await page.$eval(
@@ -28,9 +30,13 @@ const HONDA_SYMBOL = 7267
     return currentPrice
   }
 
-  // 対象の数字を表示
-  console.log(`トヨタ: ${await getCurrentPrice(TOYOTA_SYMBOL)}`)
-  console.log(`ホンダ: ${await getCurrentPrice(HONDA_SYMBOL)}`)
+  // 各々の現在価格を取得
+  const toyotaPrice = await getCurrentPrice(TOYOTA_SYMBOL)
+  const hondaPrice = await getCurrentPrice(HONDA_SYMBOL)
+  console.log('取得処理完了\n')
+
+  console.log(`トヨタ: ${toyotaPrice}`)
+  console.log(`ホンダ: ${hondaPrice}`)
 
   // ブラウザを閉じる
   await browser.close()
