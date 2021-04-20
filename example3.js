@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+const sleep = require('await-sleep')
 
 ;(async () => {
   const browser = await puppeteer.launch({

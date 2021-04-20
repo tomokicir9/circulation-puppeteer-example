@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+const sleep = require('await-sleep')
 const fs = require('fs')
 
 const TOYOTA_SYMBOL = 7203

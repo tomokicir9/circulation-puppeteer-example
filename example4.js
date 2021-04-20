@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+const sleep = require('await-sleep')
 
 const TOYOTA_SYMBOL = 7203
 const HONDA_SYMBOL = 7267
