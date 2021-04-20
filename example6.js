@@ -61,7 +61,7 @@ const HONDA_SYMBOL = 7267
   // ファイルに CSV として書き込む関数
   const appendToFile = (price, companyName) => {
     const line = `${companyName},${price.current},${price.close},${price.open},${price.high},${price.low},${price.diff}\n`
-    fs.appendFileSync('./data.csv', line, 'utf8')
+    fs.appendFileSync('./data.csv', line)
   }
 
   // CSV でファイルに書き込み
