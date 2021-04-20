@@ -41,6 +41,11 @@ Chrome を操作するツール。 Nodejs(Javascript)で記述する。
 ## よく使う構文
 
 ```js
+// 文字を表示する
+console.log(テキスト)
+```
+
+```js
 // Chrome を立ち上げる
 const browser = await puppeteer.launch({
   headless: false, // 画面を隠すかどうか
@@ -53,5 +58,16 @@ const page = await browser.newPage() // 新しいタブを開く
 ```
 
 ```js
+// URLを指定してページを開く
 await page.goto(行き先のURL)
+```
+
+```js
+// 要素が読み込まれるまで待つ
+await page.waitForSelector(セレクタ)
+```
+
+```js
+// 要素の中身を取得する
+await page.$eval(セレクタ, (e) => e.textContent)
 ```
